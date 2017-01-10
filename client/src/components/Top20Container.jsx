@@ -23,8 +23,10 @@ var Top20Container = React.createClass({
         }
       },
       function() {
-        document.getElementsByTagName( "audio" )[0].load();
-        document.getElementsByTagName( "audio" )[0].play();
+        var audioElement = document.getElementsByTagName( "audio" )[0];
+        audioElement.pause();
+        audioElement.load();
+        audioElement.play();
       }
     );
   },
