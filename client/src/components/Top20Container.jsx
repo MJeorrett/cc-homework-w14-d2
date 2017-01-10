@@ -1,13 +1,33 @@
 var React = require('react');
 
 var Top20Entry = require('./Top20Entry');
+var ReactAudioPlayer = require('react-audio-player');
 
 var Top20Container = React.createClass({
 
   getInitialState: function() {
     return {
-      data: ""
+      data: "",
+      playingTrackUrl: ""
     }
+  },
+
+  setPlayingTrack: function( playingTrackUrl ) {
+    var newSrc = playingTrackUrl
+    if ( playingTrackUrl === this.state.playingTrackUrl ) {
+      newSrc = ""
+    }
+    this.setState(
+      function () {
+        return {
+          playingTrackUrl: newSrc
+        }
+      },
+      function() {
+        document.getElementsByTagName( "audio" )[0].load();
+        document.getElementsByTagName( "audio" )[0].play();
+      }
+    );
   },
 
   componentDidMount: function() {
@@ -34,14 +54,22 @@ var Top20Container = React.createClass({
           return <Top20Entry
             key={ index }
             entryData={ entryData }
+            updatePlayingTrack={ this.setPlayingTrack }
           />
-        }
+        }.bind( this )
       );
 
       return (
         <div>
           <h1>Top 20</h1>
+          <p>Playing Track URL: { this.state.playingTrackUrl }</p>
           { entryElements }
+          <audio controls>
+            <source
+              src={ this.state.playingTrackUrl }
+              type="audio/mpeg"
+            />
+          </audio>
         </div>
       )
     } else {
