@@ -10,14 +10,19 @@ div {
   text-align: center;
 }
 
-.Top20Image {
+.top-20-image {
   margin: 7px 10px;
   padding: 0;
 }
 
-.Top20Image:hover {
+.top-20-image:hover {
   -ms-transform: rotate(7deg);
   -webkit-transform: rotate(7deg);
   transform: rotate(7deg);
   cursor: pointer;
+}
+
+.image-selected {
+  border: 4px solid tomato;
+  margin: 3px 6px;
 }
