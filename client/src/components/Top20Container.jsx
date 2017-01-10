@@ -33,12 +33,13 @@ var Top20Container = React.createClass({
     var request = new XMLHttpRequest();
     request.open( 'GET', this.props.dataUrl );
     request.onload = function() {
+      var dataObject = JSON.parse( request.responseText );
       this.setState(
         {
-          data: JSON.parse( request.responseText )
+          data: dataObject
         },
         function() {
-          console.log( JSON.parse( request.responseText ) );
+          console.log( "received data: ", dataObject );
         }
       );
     }.bind( this );
@@ -52,7 +53,8 @@ var Top20Container = React.createClass({
         function( entryData, index ) {
           return <Top20Entry
             key={ index }
-            entryData={ entryData }
+            imageUrl={ entryData["im:image"][2].label }
+            trackUrl={ entryData.link[1].attributes.href }
             updatePlayingTrack={ this.setPlayingTrack }
             playingTrackUrl={ this.state.playingTrackUrl }
           />

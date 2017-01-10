@@ -9,7 +9,7 @@ var Top20Entry = React.createClass({
   },
 
   handleClick: function() {
-    var trackUrl = this.props.entryData.link[1].attributes.href;
+    var trackUrl = this.props.trackUrl;
     this.props.updatePlayingTrack( trackUrl );
     var newSelected = !this.state.selected;
     this.setState({
@@ -20,14 +20,14 @@ var Top20Entry = React.createClass({
   render: function() {
 
     var entryData = this.props.entryData;
-    var trackUrl = this.props.entryData.link[1].attributes.href;
-    var selectedClass = this.props.playingTrackUrl === trackUrl ? " image-selected" : ""
+    var selected = this.props.playingTrackUrl === this.props.trackUrl;
+    var selectedClass =  selected ? " image-selected" : ""
     var fullClassName = "top-20-image" + selectedClass;
 
     return (
       <img
         className={ fullClassName }
-        src={ entryData["im:image"][2].label }
+        src={ this.props.imageUrl }
         onClick={ this.handleClick }
       />
     )
