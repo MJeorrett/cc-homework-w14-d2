@@ -1,5 +1,7 @@
 var React = require('react');
 
+var Top20Entry = require('./Top20Entry');
+
 var Top20Container = React.createClass({
 
   getInitialState: function() {
@@ -25,12 +27,26 @@ var Top20Container = React.createClass({
   },
 
   render: function() {
-    return (
-      <div>
-        <h1>Top 20</h1>
-        { this.state.data.toString() }
-      </div>
-    )
+
+    if ( this.state.data ) {
+      var entryElements = this.state.data.feed.entry.map(
+        function( entryData, index ) {
+          return <Top20Entry
+            key={ index }
+            entryData={ entryData }
+          />
+        }
+      );
+
+      return (
+        <div>
+          <h1>Top 20</h1>
+          { entryElements }
+        </div>
+      )
+    } else {
+      return <p>Loading...</p>
+    }
   }
 
 });
