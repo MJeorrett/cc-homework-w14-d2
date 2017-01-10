@@ -13,6 +13,8 @@ var Top20Container = React.createClass({
 
   setPlayingTrack: function( playingTrackUrl ) {
     var newSrc = playingTrackUrl;
+    var audioElement = document.getElementsByTagName( "audio" )[0];
+    audioElement.pause();
     if ( playingTrackUrl === this.state.playingTrackUrl ) {
       newSrc = ""
     }
@@ -23,8 +25,6 @@ var Top20Container = React.createClass({
         }
       },
       function() {
-        var audioElement = document.getElementsByTagName( "audio" )[0];
-        audioElement.pause();
         audioElement.load();
         audioElement.play();
       }
