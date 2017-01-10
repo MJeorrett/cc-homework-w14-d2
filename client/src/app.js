@@ -5,7 +5,7 @@ var Top20Container = require('./components/Top20Container');
 
 window.onload = function(){
   ReactDOM.render(
-    <Top20Container dataUrl="https://itunes.apple.com/gb/rss/topsongs/limit=20/json" />,
+    <Top20Container dataUrl="https://itunes.apple.com/gb/rss/topsongs/limit=18/json" />,
     document.getElementById('app')
   );
 }

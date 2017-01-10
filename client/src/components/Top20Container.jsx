@@ -65,7 +65,7 @@ var Top20Container = React.createClass({
 
       return (
         <div>
-          <h1>Top 20</h1>
+          <h1>Top 18</h1>
           { entryElements }
           <audio>
             <source
