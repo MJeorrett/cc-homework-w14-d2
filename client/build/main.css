@@ -1,57 +1,22 @@
-body{
-  font-family: Verdana;
+h1 {
+  font-family: fantasy;
+  font-size: 70px;
+  color: lightgrey;
+  margin: 0;
+  padding: 0;
 }
 
-.counter-box, .comment-box{
-  border: 2px solid mediumaquamarine;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 5px auto;
-  width: 400px;
-  font-size: 20px;
+div {
   text-align: center;
 }
 
-button{
-  padding: 10px;
-  width: 150px;
-  border-radius: 10px;
-  font-size: 20px;
-  background-color: tomato;
+.Top20Image {
+  margin: 7px 10px;
+  padding: 0;
 }
 
-button:hover{
-  background-color: mediumaquamarine;
-}
-
-.comment{
-  border-bottom: 1px solid mediumaquamarine;
-  padding: 10px;
-}
-
-.comment-form{
-  margin: 0 auto;
-  width: 70%;
-}
-
-.comment-form input{
-  display: block;
-  margin: 20px 0;
-  padding: 10px;
-  width: 100%;
-}
-
-.comment-form input[type=submit]{
-  width: 100%;
-  padding: 10px;
-  margin 20px auto;
-  text-align: center;
-  color: white;
-  font-size: 20px;
-  background-color: mediumaquamarine;
-  border-radius: 5px;
-}
-
-.countries-box{
-  
+.Top20Image:hover {
+  -ms-transform: rotate(7deg);
+  -webkit-transform: rotate(7deg);
+  transform: rotate(7deg);
 }
