@@ -12,9 +12,14 @@ var Top20Container = React.createClass({
     var request = new XMLHttpRequest();
     request.open( 'GET', this.props.dataUrl );
     request.onload = function() {
-      this.setState({
-        data: JSON.parse( request.responseText )
-      });
+      this.setState(
+        {
+          data: JSON.parse( request.responseText )
+        },
+        function() {
+          console.log( JSON.parse( request.responseText ) );
+        }
+      );
     }.bind( this );
     request.send( null );
   },
